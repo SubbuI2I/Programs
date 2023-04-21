@@ -1,0 +1,76 @@
+What is Python and why is it popular?
+    Python is a popular, beginner-friendly programming language used for web development, machine learning, analytics, etc., 
+    Simple syntax and easy to use for beginners as well as professionals.
+    its first release in 1991.
+
+What are the differences between Python 2 and Python 3?
+    Python2 released in 2000 and Python3 in 2008.
+    Python2 was sunsetted in 2020.
+    Python3 is the latest version and has significant changes and improvements over Python2.
+    few differences 
+    Python2                             | Python 3
+    ----------------------------------- | -----------------------------
+    Print used as keyword.              |  Print used as function.  
+    Print "Hello"                       | Print("Hello")
+
+    Integer division returns an integer | Integer division returns float
+    3/2 -> 1                            | 3/2 -> 1.5
+
+    try:                                | try:
+    except Exception, e                 | except Exception as e
+
+
+What is the difference between a tuple and a list in Python?
+    tuple is ordered and unchangeable but list is ordered and changeable (add/remove/modify). Both allows duplicates.
+    tuple = (a,b) and list = [a,b]
+
+How do you create a dictionary in Python?
+    dictionary will be created as a 'key' : 'value' pairs.
+    empDict = {
+        "name": "Subbu",
+        "gender" : "Male"
+    }
+
+What is a function in Python and how do you define one?
+    function is a block of code to perform certain logic and reusable. 
+    it can accepts inputs as parameters and return data as a result but return is not a mandatory. 
+    Example:
+        def testFunction(param1, param2): 
+            return param1 + " Function " + param2        
+            fnOutput = testFunction()
+
+What is object-oriented programming (OOP) and how does it relate to Python?
+    OOP is to create modular, reusable, and maintainable code by representing real-world concepts as objects.
+    Python supports OOP concepts such as classes, objects, inheritance, and polymorphism. 
+How do you handle exceptions in Python?
+    In Python, exceptions can be handled using try-except blocks.
+    try block contains code that throws exception then except block will have code to handle that exception.
+    try:
+        err = 10/0
+    except ZeroDivisionError as ex:
+        print(str.format("Exception: {}" , ex))
+
+How do you read and write files in Python?
+    using write method we can write content to a file in python.
+        with open('questions1.txt','w') as f:
+            f.write('hello')
+    using open method we can read content from a file in python.
+        with open('questions1.txt', 'r') as f:
+            print(f.read())
+How do you install and use external packages in Python?
+    To install external packages use package manager pip, for example: 'pip install <packagename>'
+    To use external package use import <packagename> , for example: import math
+
+
+How do you use the "if" statement in Python to perform conditional execution?
+    if expression:
+        true statments
+    else:
+        false statements
+
+    for example:
+        a,b = 5, 6
+        if a>b:
+            print(str.format("{} is greater than {}", a, b))
+        else:
+            print(str.format("{} is lesser than {}", a, b))

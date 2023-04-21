@@ -1,0 +1,10 @@
+property_type,location,price,num_bedrooms,num_bathrooms,sq_footage
+House,London,500000,3,2,1500
+Apartment,Manchester,250000,2,1,1000
+House,Birmingham,750000,4,3,2000
+House,Liverpool,400000,3,2,1400
+Apartment,Leeds,300000,2,2,1200
+Apartment,Liverpool,400000,3,2,1400
+House,Liverpool,40000,2,1,1000
+Apartment,London,500000,3,2,1500
+Flat,London,100000,3,1,800
