@@ -64,10 +64,12 @@ avg_price_loc = avg_price_loc.rename(
     columns={
      'location':'Location',
     'price': 'Avg Price',
-    'sq_footage': 'Avg Sq.ft',
-    'num_bathrooms': 'Avg Bathrooms'
+    'sq_footage': 'Avg Sq.ft'
     })
-tbl_data = [list(avg_price_loc)] + avg_price_loc.values.tolist()
+formats = ['{}','${:,.2f}','{:.2f} Sq.ft']
+formatted_data = [[formats[i].format(row[i]) for i in range(len(row))] for row in avg_price_loc.values]
+#print(formatted_data)
+tbl_data = [list(avg_price_loc)] + formatted_data
 #print(tbl_data)
 table = Table(tbl_data)
 pdf.setFont('Courier', 12)
@@ -81,14 +83,16 @@ avg_rooms_prop = data.groupby('property_type').agg(
     {'num_bedrooms': 'mean', 'num_bathrooms': 'mean'}).reset_index()
 avg_rooms_prop = avg_rooms_prop.rename(
     columns={
-    'location':'Location',
+    # 'location':'Location',
     'property_type':'Property Type',
-    'price': 'Avg Price',
-    'sq_footage': 'Avg Sq.ft',
+    # 'price': 'Avg Price',
+    # 'sq_footage': 'Avg Sq.ft',
     'num_bedrooms': 'Avg Bedrooms',
     'num_bathrooms': 'Avg Bathrooms'
     })
-tbl_data = [list(avg_rooms_prop)] + avg_rooms_prop.values.tolist()
+formats = ['{}','{:.2f}','{:.2f}']
+formatted_data = [[formats[i].format(row[i]) for i in range(len(row))] for row in avg_rooms_prop.values]
+tbl_data = [list(avg_rooms_prop)] + formatted_data
 #print(avg_rooms_prop)
 table = Table(tbl_data)
 pdf.setFont('Courier', 12)
@@ -112,13 +116,14 @@ avg_loc_prop = avg_loc_prop.rename(
     'num_bedrooms': 'Avg Bedrooms',
     'num_bathrooms': 'Avg Bathrooms'
 })
-
-tbl_data = [list(avg_loc_prop)] + avg_loc_prop.values.tolist()
+formats = ['{}','{}','${:,.2f}','{:.2f} Sq.ft','{}', '{}']
+formatted_data = [[formats[i].format(row[i]) for i in range(len(row))] for row in avg_loc_prop.values]
+tbl_data = [list(avg_loc_prop)] + formatted_data
 table = Table(tbl_data)
 pdf.showPage()
 pdf.setFont('Courier-Bold', 12)
 pdf.drawAlignedString(450, 750, 'Summary Report for Location and Property Type')
 pdf.setFont('Courier', 12)
-table.wrap(0, 0)
-table.drawOn(pdf, 50, 500)
+table.wrapOn(pdf,0, 0)
+table.drawOn(pdf, 50, 550)
 pdf.save()
